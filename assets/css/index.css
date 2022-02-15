@@ -1,0 +1,50 @@
+/* 页面渲染思路 : 1.先头部格式, 2.再侧边栏格式,  */
+.layui-footer {
+    text-align: center;
+}
+.iconfont {
+    padding-right: 5px;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+}
+.layui-body {
+    overflow: hidden;
+}
+
+/* 开始布局图片头像和文字头像 */
+#userinfo {
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    user-select: none;
+    border-bottom: 1px solid #fff;
+}
+.textavatar,.welcome {
+    color: #fff;
+}
+.textavatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #009688;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
