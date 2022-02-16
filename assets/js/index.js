@@ -1,8 +1,21 @@
 $(function () {
-    // 引入layui的layer/form
+    // 引入layui的layer
     var layer = layui.layer
-    var form = layui.form
-    // 1.进入index页面立即,发起请求获取用户信息
+    // 1.进入index页面立即,发起请求获取用户信息 ==> 可用此次的请求来进行权限的设定(无token时无法进入index页面,并跳转login页面)
+    initUserData();
+
+    // 3.退出功能
+    $('#back').on('click', function () {
+        layer.confirm('确认退出?', { icon: 3, title: '提示' }, function (index) {
+            localStorage.removeItem('token')
+            location.href = '/login.html'
+            layer.close(index);
+        });
+    })
+})
+
+// 在外部定义 获取用户信息ajax请求 函数 ==> 后面开发 更新用户信息功能 时需要调用此函数 ==>所以写在外部
+function initUserData() {
     $.ajax({
         method: 'get',
         url: '/my/userinfo',
@@ -23,19 +36,12 @@ $(function () {
             if (res.data.nickname == '') {
                 $('.welcome').html('欢迎&nbsp&nbsp' + res.data.username)
             } else {
-                $('.welcome').html(res.data.nickname)
+                $('.welcome').html('欢迎&nbsp&nbsp' + res.data.nickname)
             }
-        },
-        complete: function (res) {
-            console.log(res);
         }
+        // 利用这个回调函数进行权限验证
+        // complete: function (res) {
+        //     console.log(res);
+        // }
     })
-    // 3.退出功能
-    $('#back').on('click', function () {
-        layer.confirm('确认退出?', { icon: 3, title: '提示' }, function (index) {
-            localStorage.removeItem('token')
-            location.href = '/login.html'
-            layer.close(index);
-        });
-    })
-})
+}
