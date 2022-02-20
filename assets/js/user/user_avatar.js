@@ -39,7 +39,7 @@ $(function () {
 
     // 2.点击确定,发起更换头像请求
     $('#right').on('click', function () {
-        // 获取64图片(需要触发)
+        // 获取64图片(上来就获取cropper的图片转换为64格式,所以需要cropper里面有了图片再执行)
         var dataURL = $image
             .cropper('getCroppedCanvas', { // 创建一个 Canvas 画布
                 width: 100,

@@ -1,0 +1,22 @@
+body,html {
+    padding: 0;
+    margin: 0;
+
+}
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#layerForm {
+    padding-top: 40px;
+    padding-right: 30px;
+}
+#layerFormEdit {
+    padding-top: 40px;
+    padding-right: 30px;
+}
